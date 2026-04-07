@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Pablo Junior</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 16mm;
+        }
+
+        :root {
+            --bg: #f4f6fb;
+            --surface: #ffffff;
+            --surface-soft: #f8faff;
+            --text: #161925;
+            --muted: #5b6275;
+            --line: #dbe1f0;
+            --primary: #4f6fff;
+            --secondary: #8c3dff;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .page {
+            width: 100%;
+            max-width: 794px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--line);
+        }
+
+        .header {
+            padding: 28px 30px 24px;
+            background: linear-gradient(135deg, #101423, #1b2140);
+            color: #fff;
+        }
+
+        .header-grid {
+            display: grid;
+            grid-template-columns: 110px 1fr;
+            gap: 22px;
+            align-items: center;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.16);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #dbe3ff;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 12px 0 6px;
+            font-size: 34px;
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+        }
+
+        .role {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ced8ff;
+        }
+
+        .summary {
+            margin: 14px 0 0;
+            max-width: 64ch;
+            color: #e7ecff;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .contact-bar {
+            margin-top: 18px;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .contact-item {
+            padding: 12px 14px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .contact-label {
+            display: block;
+            font-size: 11px;
+            color: #aebcf7;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 700;
+        }
+
+        .contact-value {
+            display: block;
+            margin-top: 4px;
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .body {
+            padding: 26px 30px 30px;
+            display: grid;
+            grid-template-columns: 0.92fr 1.08fr;
+            gap: 22px;
+        }
+
+        .section + .section {
+            margin-top: 20px;
+        }
+
+        .section-title {
+            margin: 0 0 10px;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #4d5ba8;
+        }
+
+        .card {
+            padding: 16px 18px;
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            background: var(--surface-soft);
+        }
+
+        .list {
+            margin: 0;
+            padding-left: 18px;
+        }
+
+        .list li {
+            margin: 0 0 8px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .stat {
+            padding: 14px 12px;
+            border-radius: 16px;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 26px;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .stat span {
+            display: block;
+            margin-top: 7px;
+            color: var(--muted);
+            font-size: 12px;
+            line-height: 1.35;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill {
+            padding: 8px 11px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: #fff;
+            font-size: 12px;
+            font-weight: 700;
+            color: #33405f;
+        }
+
+        .project {
+            padding: 16px 18px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            background: #fff;
+        }
+
+        .project + .project {
+            margin-top: 12px;
+        }
+
+        .project h3 {
+            margin: 0;
+            font-size: 17px;
+            letter-spacing: -0.03em;
+        }
+
+        .project p {
+            margin: 8px 0 12px;
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-meta span {
+            padding: 7px 10px;
+            border-radius: 999px;
+            background: var(--surface-soft);
+            border: 1px solid var(--line);
+            font-size: 11px;
+            font-weight: 700;
+            color: #43506f;
+        }
+
+        .links {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .links a {
+            color: #4257d6;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .footer-note {
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid var(--line);
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+            }
+
+            .page {
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="header">
+            <div class="header-grid">
+                <div class="avatar">
+                    <img src="images/img perfil.jpeg" alt="Foto de Pablo Junior">
+                </div>
+
+                <div>
+                    <span class="eyebrow">Currículo Profissional</span>
+                    <h1>Pablo Junior</h1>
+                    <p class="role">Analista e Desenvolvedor de Sistemas</p>
+                    <p class="summary">
+                        Profissional com foco em front-end, interfaces responsivas e experiências digitais modernas.
+                        Gosto de transformar ideias em páginas bem resolvidas visualmente, com código organizado,
+                        navegação intuitiva e atenção aos detalhes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="contact-bar">
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    <span class="contact-value">pabloestevamjr@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Telefone</span>
+                    <span class="contact-value">+55 (75) 98293-2782</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Localização</span>
+                    <span class="contact-value">Feira de Santana, Bahia</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">GitHub</span>
+                    <span class="contact-value">github.com/s1llva-09</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="body">
+            <div>
+                <section class="section">
+                    <h2 class="section-title">Resumo</h2>
+                    <div class="card">
+                        <ul class="list">
+                            <li>2+ anos estudando tecnologia e desenvolvendo projetos práticos.</li>
+                            <li>Interesse forte em HTML, CSS, JavaScript, responsividade e construção de interfaces.</li>
+                            <li>Base em análise e desenvolvimento de sistemas, com foco em evolução contínua.</li>
+                            <li>Facilidade para transformar referência visual em páginas funcionais e organizadas.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Indicadores</h2>
+                    <div class="stats">
+                        <div class="stat">
+                            <strong>2+</strong>
+                            <span>Anos estudando tecnologia</span>
+                        </div>
+                        <div class="stat">
+                            <strong>50+</strong>
+                            <span>Projetos e exercícios</span>
+                        </div>
+                        <div class="stat">
+                            <strong>30+</strong>
+                            <span>Desafios concluídos</span>
+                        </div>
+                        <div class="stat">
+                            <strong>100%</strong>
+                            <span>Foco em evolução constante</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Habilidades</h2>
+                    <div class="card">
+                        <div class="skills">
+                            <span class="skill">HTML</span>
+                            <span class="skill">CSS</span>
+                            <span class="skill">JavaScript</span>
+                            <span class="skill">Java</span>
+                            <span class="skill">Git</span>
+                            <span class="skill">APIs</span>
+                            <span class="skill">SQL</span>
+                            <span class="skill">MySQL</span>
+                            <span class="skill">Responsividade</span>
+                            <span class="skill">UI Design</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div>
+                <section class="section">
+                    <h2 class="section-title">Projetos em Destaque</h2>
+
+                    <article class="project">
+                        <h3>Imobiliária Page</h3>
+                        <p>Landing page para imobiliária com catálogo de imóveis, modal de detalhes, formulário com envio por WhatsApp e suporte bilíngue.</p>
+                        <div class="project-meta">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>WhatsApp</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/s1llva-09/Imobiliara-page">Código</a>
+                            <a href="https://limainmobiliariaofc.com">Demo</a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <h3>Disk Brasil</h3>
+                        <p>Cardápio digital para hamburgueria com categorias, carrinho, troca de idioma e fluxo de pedido no front-end.</p>
+                        <div class="project-meta">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>Carrinho</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://github.com/s1llva-09/HAMBURGUERIA">Código</a>
+                            <a href="https://s1llva-09.github.io/HAMBURGUERIA/">Demo</a>
+                        </div>
+                    </article>
+
+                    <article class="project">
+                        <h3>Portfólio Pessoal</h3>
+                        <p>Portfólio com visual moderno, seções de apresentação, habilidades, projetos e contato, pensado para destacar trabalhos e identidade profissional.</p>
+                        <div class="project-meta">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>UI</span>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Objetivo</h2>
+                    <div class="card">
+                        <ul class="list">
+                            <li>Atuar em projetos web onde eu possa evoluir tecnicamente e contribuir com interfaces modernas e bem executadas.</li>
+                            <li>Ganhar experiência prática em desenvolvimento front-end e integração com soluções reais.</li>
+                            <li>Continuar construindo projetos autorais para ampliar repertório, qualidade de código e presença profissional.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <p class="footer-note">
+                    Currículo gerado a partir das informações presentes no portfólio pessoal em 7 de abril de 2026.
+                </p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

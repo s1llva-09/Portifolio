@@ -1,0 +1,17 @@
+Pablo Junior
+Analista e Desenvolvedor de Sistemas
+
+Resumo
+- Desenvolvimento de interfaces modernas e responsivas
+- Organização de projetos front-end e integração com APIs
+- Interesse em performance, design e experiência do usuário
+
+Contato
+- Email: pabloestevamjr@gmail.com
+- Telefone: +55 (75) 98293-2782
+- GitHub: https://github.com/s1llva-09
+- Instagram: https://www.instagram.com/_pabjunior/
+
+Observação
+Este é um arquivo temporário para o botão "Download CV" funcionar no portfólio.
+Substitua por um PDF final quando quiser publicar o projeto.
