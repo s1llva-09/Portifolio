@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js'); // sem JS, nada de reveal: conteudo aparece igual
 // nav: fundo so depois que sai do topo
 const header = document.getElementById('header');
 new IntersectionObserver(

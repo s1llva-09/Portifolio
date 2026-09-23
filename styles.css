@@ -118,7 +118,6 @@ header .btn{padding:9px 18px;font-size:14px}
 .card:hover{border-color:var(--line-2);transform:translateY(-4px)}
 .card.big{grid-column:span 7}
 .card.mid{grid-column:span 5}
-.card.half{grid-column:span 6}
 .card-media{position:relative;overflow:hidden;flex:1;min-height:190px;background:#0e0e10}
 .card-media img{width:100%;height:100%;object-fit:cover;object-position:top left;filter:grayscale(.6) brightness(.74);transition:transform .8s var(--ease),filter .5s}
 .card:hover .card-media img{transform:scale(1.05);filter:grayscale(0) brightness(.95)}
@@ -202,8 +201,8 @@ footer a:hover{color:var(--fg)}
 }
 
 /* -------- movimento ------------------------------------------------------ */
-[data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-[data-reveal].in{opacity:1;transform:none}
+.js [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.js [data-reveal].in{opacity:1;transform:none}
 .hero [data-rise]{opacity:0;animation:rise .9s var(--ease) forwards}
 .hero [data-rise="1"]{animation-delay:.05s}
 .hero [data-rise="2"]{animation-delay:.15s}
@@ -227,7 +226,7 @@ footer a:hover{color:var(--fg)}
 @media (max-width:1000px){
   .hero .wrap,.about .wrap{grid-template-columns:1fr;gap:40px}
   .shot{transform:none}
-  .card,.card.big,.card.mid,.card.half{grid-column:span 6}
+  .card,.card.big,.card.mid{grid-column:span 6}
 }
 @media (max-width:760px){
   nav,header .btn{display:none}
@@ -238,7 +237,7 @@ footer a:hover{color:var(--fg)}
   header.open nav ul{flex-direction:column;gap:16px;padding:18px 0 8px}
   header.open .btn{display:inline-flex;width:100%;justify-content:center;order:4}
   .hero{padding-top:108px}
-  .card,.card.big,.card.mid,.card.half{grid-column:span 12}
+  .card,.card.big,.card.mid{grid-column:span 12}
   .steps{grid-template-columns:1fr;gap:32px}
   .facts div{flex-direction:column;gap:4px}
   .facts dt{min-width:0}
@@ -270,3 +269,12 @@ footer a:hover{color:var(--fg)}
   background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(226,84,45,.16),transparent 62%);
 }
 .card:hover::before{opacity:1}
+
+/* -------- card largura total (banner) ------------------------------------ */
+.card.full{grid-column:span 12;flex-direction:row}
+.card.full .card-type{flex:0 0 40%;min-height:220px}
+.card.full .card-body{flex:1;display:flex;flex-direction:column;justify-content:center;border-top:0;border-left:1px solid var(--line)}
+@media (max-width:1000px){
+  .card.full{flex-direction:column}
+  .card.full .card-body{border-left:0;border-top:1px solid var(--line)}
+}
