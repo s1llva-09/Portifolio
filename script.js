@@ -51,3 +51,13 @@ if (matchMedia('(pointer: fine)').matches) {
     });
   });
 }
+
+// tema: claro por padrao, escolha do visitante fica salva
+const themeBtn = document.getElementById('theme-toggle');
+themeBtn.addEventListener('click', () => {
+  const tema = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.dataset.theme = tema;
+  localStorage.setItem('tema', tema);
+  document.querySelector('meta[name="theme-color"]').content =
+    tema === 'dark' ? '#0b0b0c' : '#f7f4ef';
+});
