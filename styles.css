@@ -247,3 +247,26 @@ footer a:hover{color:var(--fg)}
 
 .ilink{color:var(--accent);border-bottom:1px solid transparent;transition:border-color .2s}
 .ilink:hover{border-bottom-color:var(--accent)}
+
+/* -------- skip link ------------------------------------------------------ */
+.skip{
+  position:fixed;top:12px;left:12px;z-index:70;transform:translateY(-140%);
+  background:var(--accent);color:#140703;font-weight:600;font-size:14px;
+  padding:10px 18px;border-radius:var(--pill);transition:transform .25s var(--ease);
+}
+.skip:focus{transform:none}
+
+/* -------- barra de progresso do scroll ----------------------------------- */
+.progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform-origin:0 50%;background:var(--accent);transform:scaleX(0)}
+@supports (animation-timeline: scroll()){
+  .progress{animation:grow linear both;animation-timeline:scroll(root block)}
+  @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+}
+
+/* -------- luz que segue o cursor nos cards -------------------------------- */
+.card::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;opacity:0;
+  transition:opacity .35s;
+  background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(226,84,45,.16),transparent 62%);
+}
+.card:hover::before{opacity:1}

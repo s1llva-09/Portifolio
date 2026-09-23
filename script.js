@@ -39,3 +39,14 @@ document.querySelectorAll('[data-reveal]').forEach((el, i) => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// luz que segue o cursor nos cards (so em mouse, nao em touch)
+if (matchMedia('(pointer: fine)').matches) {
+  document.querySelectorAll('.card').forEach((card) => {
+    card.addEventListener('pointermove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      card.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
+}
